@@ -8,6 +8,7 @@ import java.util.Iterator;
 
 /**
  * NIO非阻塞模型通信Server端
+ * Selector何时不阻塞:触发某些事件如READ,WRITE等是就不会阻塞
  */
 public class Server {
     public static void main(String[] args) {

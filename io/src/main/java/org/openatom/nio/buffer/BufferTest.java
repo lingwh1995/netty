@@ -1,7 +1,7 @@
 package org.openatom.nio.buffer;
 
 import org.junit.Test;
-import org.openatom.nio.utils.ByteBufferUtil;
+import org.openatom.utils.ByteBufferUtil;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -56,7 +56,7 @@ public class BufferTest {
         byteBuffer.clear();
         getBufferInfo(byteBuffer);
 
-        //调用put()方法才会有真正清除数据的效果
+        //调用clear()方法后再调用put()方法才会有真正清除数据的效果
         byteBuffer.put("AAA".getBytes());
 
         while(byteBuffer.hasRemaining()) {
@@ -218,9 +218,12 @@ public class BufferTest {
         System.out.println("buffer3:" + StandardCharsets.UTF_8.decode(buffer3).toString());
     }
 
+    /**
+     * 黏包，半包的解析
+     */
     @Test
     public void fun9() {
-                 /*
+        /*
          网络上有多条数据发送给服务端，数据之间使用 \n 进行分隔
          但由于某种原因这些数据在接收时，被进行了重新组合，例如原始数据有3条为
              Hello,world\n

@@ -1,4 +1,4 @@
-package org.openatom.nio.utils;
+package org.openatom.utils;
 
 import io.netty.util.internal.StringUtil;
 
@@ -180,4 +180,5 @@ public class ByteBufferUtil {
     public static short getUnsignedByte(ByteBuffer buffer, int index) {
         return (short) (buffer.get(index) & 0xFF);
     }
+
 }
