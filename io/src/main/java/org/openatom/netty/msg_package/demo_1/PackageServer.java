@@ -1,4 +1,4 @@
-package org.openatom.netty.msg_package;
+package org.openatom.netty.msg_package.demo_1;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -13,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Netty黏包半包测试 Server端
+ * 演示Netty演示黏包半包现象 Server端
  */
 public class PackageServer {
     static final Logger log = LoggerFactory.getLogger(PackageServer.class);
@@ -24,6 +24,7 @@ public class PackageServer {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.channel(NioServerSocketChannel.class);
             //测试半包放开下面一行注释,测试黏包注释下面一行代码
+            //设置Server端滑动窗口大小(接收缓冲区大小)
             serverBootstrap.option(ChannelOption.SO_RCVBUF, 10);
             serverBootstrap.group(boss, worker);
             serverBootstrap.childHandler(new ChannelInitializer<SocketChannel>() {
