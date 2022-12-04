@@ -1,6 +1,6 @@
 package org.openatom.netty.eventloop;
 
-import io.netty.channel.*;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 
 import java.util.concurrent.TimeUnit;
